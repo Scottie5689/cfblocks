@@ -11,7 +11,7 @@ License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Example block written with ESNext standard and JSX support – build step required.
 
 Component Reference guid - https://developer.wordpress.org/block-editor/reference-guides/components/
-
+Gutenberg Git Hub Component Block Examples - https://github.com/WordPress/gutenberg/tree/5b81cbc66c5d52f9603f77a60ec7864150173dd0/packages/components/src
 == Description ==
 
 This is the long description. No limit, and you can use Markdown (as well as in the following sections).

@@ -3,7 +3,8 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { TextControl } from '@wordpress/components';
+import { TextareaControl, TextControl, ColorPalette } from '@wordpress/components';
+import { withState } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -33,14 +34,39 @@ import './editor.scss';
 
 
  export default function Edit( { attributes, className, setAttributes } ) {
-    const blockProps = useBlockProps();
+    const blockProps = useBlockProps({ className: 'my-random-classname' });
+    const MyColorPalette = withState( {
+        color: '#4c9bbd',
+    } )( ( { color, setState } ) => {
+        const colors = [
+            { name: 'Turquoise', color: '#4c9bbd' },
+            { name: 'Dark Grey', color: '#505050' },
+        ];
+
+        return (
+            <ColorPalette
+                label={ __( 'Background Color', 'cfpath-blocks' ) }
+                colors={ colors }
+                value={ color }
+                onChange={ ( color ) => setState( { color } ) }
+            />
+        )
+    } );
     return (
        <div { ...blockProps }>
-           <TextControl
+           <TextareaControl
                label={ __( 'Testimonial Body', 'cfpath-blocks' ) }
+               placeholder="Testimonial body"
                value={ attributes.message }
                onChange={ ( val ) => setAttributes( { message: val } ) }
            />
+           <TextControl
+               label={ __( 'Testimonial Name', 'cfpath-blocks' ) }
+               placeholder="Testimonial Name"
+               value={ attributes.name }
+               onChange={ ( val ) => setAttributes( { name: val } ) }
+           />
+           <MyColorPalette />
        </div>
     );
  }

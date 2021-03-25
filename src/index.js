@@ -35,8 +35,13 @@ registerBlockType( 'create-block/cfblocks', {
   attributes: {
       message: {
           type: 'string',
-          source: 'text',
+          source: 'textarea',
           selector: 'div',
+      },
+      name: {
+          type: 'string',
+          source: 'text',
+          selector: '.testimonial-source',
       },
   },
   category: 'widgets',
