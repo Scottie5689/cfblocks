@@ -25,9 +25,9 @@ import { useBlockProps } from '@wordpress/block-editor';
  export default function Save( { attributes, className } ) {
     const blockProps = useBlockProps.save();
     return (
-      <div { ...blockProps }>
-      <div>{ attributes.message }</div>
-      <div>{ attributes.name }</div>
-      </div>
+      <figure { ...blockProps } style={{ background: attributes.backgroundColor }}>
+      <blockquote>{ attributes.message }</blockquote>
+      <figcaption>{ attributes.student }</figcaption>
+      </figure>
     );
 }

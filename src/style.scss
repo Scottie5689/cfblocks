@@ -6,7 +6,11 @@
  */
 
 .wp-block-create-block-cfblocks {
-	background-color: #21759b;
+	padding: 20px;
 	color: #fff;
-	padding: 2px;
+	text-align: left;
+
+	p {
+		text-align: right;
+	}
 }

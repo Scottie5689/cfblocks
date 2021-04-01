@@ -33,40 +33,43 @@ import './editor.scss';
  */
 
 
- export default function Edit( { attributes, className, setAttributes } ) {
-    const blockProps = useBlockProps({ className: 'my-random-classname' });
-    const MyColorPalette = withState( {
-        color: '#4c9bbd',
-    } )( ( { color, setState } ) => {
-        const colors = [
-            { name: 'Turquoise', color: '#4c9bbd' },
-            { name: 'Dark Grey', color: '#505050' },
-        ];
+ export default function Edit( { attributes, setAttributes } ) {
+    const blockProps = useBlockProps({ className: 'testimonial-block' });
 
-        return (
-            <ColorPalette
-                label={ __( 'Background Color', 'cfpath-blocks' ) }
-                colors={ colors }
-                value={ color }
-                onChange={ ( color ) => setState( { color } ) }
-            />
-        )
+    const MyColorPalette = withState( {
+    	color: '#4C9BBD',
+    } )( ( { color, setState } ) => {
+    	const colors = [
+    		{ name: 'turquoise', color: '#4C9BBD' },
+    		{ name: 'Dark Grey', color: '#505050' },
+    	];
+      const { backgroundColor } = attributes;
+    	return (
+    		<ColorPalette
+    			colors={ colors }
+    			value={ backgroundColor }
+    			onChange={(value) => setAttributes({ backgroundColor: value })}
+    		/>
+    	)
     } );
+
     return (
-       <div { ...blockProps }>
+       <div { ...blockProps } style={{ background: attributes.backgroundColor }}>
            <TextareaControl
-               label={ __( 'Testimonial Body', 'cfpath-blocks' ) }
+               label={ __( 'Testimonial Body' ) }
                placeholder="Testimonial body"
+               className="testimonial-block__body"
                value={ attributes.message }
                onChange={ ( val ) => setAttributes( { message: val } ) }
            />
            <TextControl
-               label={ __( 'Testimonial Name', 'cfpath-blocks' ) }
+               label={ __( 'Testimonial Name' ) }
                placeholder="Testimonial Name"
-               value={ attributes.name }
-               onChange={ ( val ) => setAttributes( { name: val } ) }
+               className="testimonial-block__source"
+               value={ attributes.student }
+               onChange={ ( val ) => setAttributes( { student: val } ) }
            />
            <MyColorPalette />
-       </div>
+				</div>
     );
  }

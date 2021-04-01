@@ -33,16 +33,17 @@ registerBlockType( 'create-block/cfblocks', {
   title: 'CF Testimonial',
   description: 'CFPathway custom testimonial block.',
   attributes: {
-      message: {
-          type: 'string',
-          source: 'textarea',
-          selector: 'div',
-      },
-      name: {
-          type: 'string',
-          source: 'text',
-          selector: '.testimonial-source',
-      },
+    message: {
+        type: 'string',
+    },
+    student: {
+        type: 'string',
+    },
+    backgroundColor: {
+        type: 'string',
+        default: '#4C9BBD',
+        format: 'hex-color',
+    },
   },
   category: 'widgets',
   icon: 'smiley',
