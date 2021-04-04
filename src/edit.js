@@ -43,7 +43,9 @@ import './editor.scss';
     		{ name: 'turquoise', color: '#4C9BBD' },
     		{ name: 'Dark Grey', color: '#505050' },
     	];
+      // add the attrbute to the colorPalette to enable saving
       const { backgroundColor } = attributes;
+
     	return (
     		<ColorPalette
     			colors={ colors }
@@ -56,14 +58,14 @@ import './editor.scss';
     return (
        <div { ...blockProps } style={{ background: attributes.backgroundColor }}>
            <TextareaControl
-               label={ __( 'Testimonial Body' ) }
+               label={ __( '' ) }
                placeholder="Testimonial body"
                className="testimonial-block__body"
                value={ attributes.message }
                onChange={ ( val ) => setAttributes( { message: val } ) }
            />
            <TextControl
-               label={ __( 'Testimonial Name' ) }
+               label={ __( '' ) }
                placeholder="Testimonial Name"
                className="testimonial-block__source"
                value={ attributes.student }

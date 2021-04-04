@@ -5,12 +5,16 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-cfblocks {
+blockquote.wp-block-create-block-cfblocks {
 	padding: 20px;
 	color: #fff;
 	text-align: left;
+	display: block;
+	width: 100%;
 
-	p {
+	cite {
 		text-align: right;
+		display: block;
+		width: 100%;
 	}
 }

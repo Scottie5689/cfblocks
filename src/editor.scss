@@ -6,4 +6,15 @@
 
 .wp-block-create-block-cfblocks {
 	border: 1px dotted #f00;
+	color: #fff;
+
+	textarea,
+	input {
+		background: rgba(0, 0, 0, 0);
+		color: #fff;
+
+		&::placeholder {
+			color: #fff !important;
+		}
+	}
 }
